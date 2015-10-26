@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo_app"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:hint="@string/login"
+        android:id="@+id/login"
+        android:imeOptions="actionNext"
+        android:lines="1"
+        android:singleLine="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:hint="@string/senha"
+        android:id="@+id/senha"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:layout_marginRight="30dp"
+        android:textColorHint="@color/hint" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btEntrar"
+        android:id="@+id/btEntrar"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button" />
+
+</LinearLayout>

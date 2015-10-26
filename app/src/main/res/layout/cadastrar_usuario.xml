@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tituloAddVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btCadastrar"
+        android:textColor="@color/darkgreen"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="30dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/nome"
+        android:id="@+id/etNome"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/login"
+        android:id="@+id/etEmail"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/senha"
+        android:id="@+id/etSenha"
+
+        android:textColorHint="@color/hint"
+        android:password="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btSalvar"
+        android:id="@+id/btSalvar"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button" />
+
+
+</LinearLayout>

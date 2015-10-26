@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tituloAddVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_perfil"
+        android:textColor="@color/darkgreen"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/tvNome"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/darkgreen"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/tvEmail"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/darkgreen" />
+    </LinearLayout>
+
+
+</LinearLayout>

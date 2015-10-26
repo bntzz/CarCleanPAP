@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">CarClean</string>
+    <string name="action_sair">Sair</string>
+    <string name="action_perfil">Perfil</string>
+
+    <string name="bemVindo">Car Clean</string>
+    <string name="login">Email</string>
+    <string name="senha">Senha</string>
+    <string name="nome">Nome</string>
+    <string name="btEntrar">Entrar</string>
+    <string name="btCadastrar">Cadastrar Usuário</string>
+
+
+    <string name="adicionarVeiculos">Adicionar Veículo</string>
+    <string name="editarVeiculo">Editar Veículo</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+    <string name="cor">Cor</string>
+    <string name="placa">Placa</string>
+    <string name="btSalvar">Salvar</string>
+    <string name="btAddVeiculo">Adicionar Veículo</string>
+    <string name="btAgendar">Agendar</string>
+    <string name="btEditar">Editar</string>
+    <string name="btExcluir">Excluir</string>
+    <string name="btIniciar">Iniciar Lavagem</string>
+    <string name="btTerminar">Terminar Lavagem</string>
+    <string name="btRetirar">Retirar da Fila</string>
+
+    <string name="tituloMarca"><b>Marca: </b></string>
+    <string name="tituloModelo"><b>Modelo: </b></string>
+    <string name="tituloPlaca"><b>Placa: </b></string>
+    <string name="tituloCor"><b>Cor: </b></string>
+    <string name="tituloStatus"><b>Status: </b></string>
+    <string name="tituloProprietario"><b>Proprietário: </b></string>
+
+    <string name="meusVeiculos">Meus Veículos</string>
+    <string name="veiculosFila">Veículos na Fila</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+
+
+
+
+
+
+</resources>

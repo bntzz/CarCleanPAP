@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundo2"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tituloAddVeiculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adicionarVeiculos"
+        android:textColor="@color/darkgreen"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="30dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/marca"
+        android:id="@+id/etMarca"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/modelo"
+        android:id="@+id/etModelo"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionNext"
+        android:hint="@string/cor"
+        android:id="@+id/etCor"
+        android:textColorHint="@color/hint" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:singleLine="true"
+        android:layout_marginTop="10dp"
+        android:textSize="22dp"
+        android:textColor="@color/darkgreen"
+        android:imeOptions="actionDone"
+        android:hint="@string/placa"
+        android:id="@+id/etPlaca"
+        android:textColorHint="@color/hint" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btSalvar"
+        android:id="@+id/btSalvar"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button" />
+
+
+</LinearLayout>
