@@ -38,7 +38,7 @@ public class Login extends Activity {
 
     public void verificarUsuario(){
 
-        Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario(login.getText().toString(),senha.getText().toString(),"email");
         usuario.setEmail(login.getText().toString());
         usuario.setSenha(senha.getText().toString());
 

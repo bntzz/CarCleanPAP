@@ -64,17 +64,6 @@ public class EditarVeiculo extends Activity {
                     return;
                 }
 
-                Veiculo ve = new Veiculo();
-                ve.setMarca(marca);
-                ve.setModelo(modelo);
-                ve.setCor(cor);
-                ve.setPlaca(placa);
-                ve.setDataAgendamento(veiculo.getDataAgendamento());
-                ve.setCodStatus(veiculo.getCodStatus());
-                ve.setProprietario(veiculo.getProprietario());
-
-                VeiculoDAO.editar(ve);
-
                 Toast.makeText(EditarVeiculo.this, "Veículo editado com sucesso!", Toast.LENGTH_LONG).show();
                 finish();
             }

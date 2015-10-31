@@ -1,7 +1,9 @@
 package com.carclean.carclean;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,8 +15,12 @@ import android.widget.ListView;
 import com.carclean.adapter.VeiculosAdapter;
 import com.carclean.beans.Veiculo;
 import com.carclean.dao.VeiculoDAO;
+import com.carclean.dao.VeiculoService;
 import com.carclean.util.DialogsUtil;
 import com.carclean.util.Info;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Fernando Benitez on 10/10/2015.
@@ -22,8 +28,8 @@ import com.carclean.util.Info;
 
 public class Principal extends ActionBarActivity {
 
-    private Button btAdicionar;
-    private ListView lvVeiculos;
+    private VeiculoService service = new VeiculoService();
+    private VeiculosAdapter adapter;
 
 
 
@@ -35,17 +41,7 @@ public class Principal extends ActionBarActivity {
         getSupportActionBar().setTitle(getString(R.string.meusVeiculos));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.darkgreen)));
 
-        lvVeiculos = (ListView) findViewById(R.id.lvVeiculos);
-
-        btAdicionar = (Button) findViewById(R.id.btAdicionar);
-
-        btAdicionar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(Principal.this, AdicionarVeiculos.class);
-                startActivity(it);
-            }
-        });
+        montaLista();
     }
 
     @Override
@@ -92,8 +88,31 @@ public class Principal extends ActionBarActivity {
     }
 
     public void montaLista() {
-        VeiculosAdapter adapter = new VeiculosAdapter(VeiculoDAO.listar(), this);
-        lvVeiculos.setAdapter(adapter);
+        new CarregarMeusProdutosTask().execute();
+    }
+
+    private class CarregarMeusProdutosTask extends AsyncTask<String, Void, List<Veiculo>> {
+        private ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(Principal.this);
+            dialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(List<Veiculo> veiculo) {
+            if (veiculo != null) {
+                adapter = new VeiculosAdapter((ArrayList<Veiculo>) veiculo, Principal.this);
+                ((ListView) findViewById(R.id.lvVeiculos)).setAdapter(adapter);
+            }
+            dialog.dismiss();
+        }
+
+        @Override
+        protected List<Veiculo> doInBackground(String... params) {
+            return service.getAll();
+        }
     }
 
 

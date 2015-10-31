@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btSalvar"
         android:id="@+id/btSalvar"
+        android:onClick="salvar"
         android:layout_gravity="right"
         android:layout_marginRight="30dp"
         android:layout_marginTop="20dp"

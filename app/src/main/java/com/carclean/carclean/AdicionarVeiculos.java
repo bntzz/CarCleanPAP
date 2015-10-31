@@ -1,6 +1,8 @@
 package com.carclean.carclean;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,8 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.carclean.beans.Usuario;
 import com.carclean.beans.Veiculo;
 import com.carclean.dao.VeiculoDAO;
+import com.carclean.dao.VeiculoService;
 import com.carclean.util.Info;
 
 /**
@@ -18,55 +22,49 @@ import com.carclean.util.Info;
 
 public class AdicionarVeiculos extends Activity {
 
-    private TextView titulo;
-    private EditText etMarca, etModelo, etCor, etPlaca;
-    private Button btSalvar;
+    private String marca, modelo, cor, placa;
+    private VeiculoService service = new VeiculoService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adicionarveiculos);
+    }
 
-        titulo = (TextView) findViewById(R.id.tituloAddVeiculo);
-        titulo.setText(getString(R.string.adicionarVeiculos));
+    public void salvar(View v){
+        marca = ((EditText) findViewById(R.id.etMarca)).getText().toString();
+        modelo = ((EditText) findViewById(R.id.etModelo)).getText().toString();
+        cor = ((EditText) findViewById(R.id.etCor)).getText().toString();
+        placa = ((EditText) findViewById(R.id.etPlaca)).getText().toString();
 
-        etMarca = (EditText) findViewById(R.id.etMarca);
-        etModelo = (EditText) findViewById(R.id.etModelo);
-        etCor = (EditText) findViewById(R.id.etCor);
-        etPlaca = (EditText) findViewById(R.id.etPlaca);
+        new EnviarMeusProdutosTask().execute();
+    }
+    private class EnviarMeusProdutosTask extends AsyncTask<String, Void, Void> {
+        private ProgressDialog dialog;
 
-        btSalvar = (Button) findViewById(R.id.btSalvar);
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(AdicionarVeiculos.this);
+            dialog.setMessage("Salvando");
+            dialog.show();
+        }
 
-        btSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String marca = etMarca.getText().toString();
-                String modelo = etModelo.getText().toString();
-                String cor = etCor.getText().toString();
-                String placa = etPlaca.getText().toString();
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            ((EditText) findViewById(R.id.etMarca)).setText("");
+            ((EditText) findViewById(R.id.etModelo)).setText("");
+            ((EditText) findViewById(R.id.etCor)).setText("");
+            ((EditText) findViewById(R.id.etPlaca)).setText("");
+            Toast.makeText(AdicionarVeiculos.this, "Veículo adicionado com sucesso!", Toast.LENGTH_LONG).show();
+            dialog.dismiss();
+        }
 
-                if (marca.trim().equals("") || modelo.trim().equals("") || cor.trim().equals("") || placa.trim().equals("")) {
-                    Toast.makeText(AdicionarVeiculos.this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                Veiculo veiculo = new Veiculo();
-                veiculo.setMarca(marca);
-                veiculo.setModelo(modelo);
-                veiculo.setCor(cor);
-                veiculo.setPlaca(placa);
-                veiculo.setCodStatus(0);
-                veiculo.setProprietario(Info.getInstancia().getUsuario());
-
-                VeiculoDAO.adicionar(veiculo);
-
-                Toast.makeText(AdicionarVeiculos.this, "Veículo adicionado com sucesso!", Toast.LENGTH_LONG).show();
-                finish();
-            }
-        });
-
+        @Override
+        protected Void doInBackground(String... params) {
+            service.post(new Veiculo(marca,modelo,cor,placa));
+            return null;
+        }
     }
 
 
 }
-

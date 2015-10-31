@@ -20,6 +20,13 @@ public class Veiculo {
     private Usuario proprietario;
     private Date dataAgendamento;
 
+    public Veiculo(String marca, String modelo, String cor, String placa) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.placa = placa;
+    }
+
     public int getId() {
         return id;
     }

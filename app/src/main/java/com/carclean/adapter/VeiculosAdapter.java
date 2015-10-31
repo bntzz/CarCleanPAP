@@ -1,6 +1,7 @@
 package com.carclean.adapter;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.carclean.carclean.EditarVeiculo;
 import com.carclean.carclean.Principal;
 import com.carclean.carclean.R;
 import com.carclean.dao.VeiculoDAO;
+import com.carclean.dao.VeiculoService;
 import com.carclean.util.DialogsUtil;
 import com.carclean.util.Info;
 
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * Created by Fernando Benitez on 10/10/2015.
@@ -37,10 +40,12 @@ public class VeiculosAdapter  extends BaseAdapter {
 
     private Date dataAuxiliar;
 
-    public VeiculosAdapter(ArrayList<Veiculo> veiculos, Principal context) {
+    public VeiculosAdapter(ArrayList<Veiculo> veiculos,Principal context) {
         this.veiculos = veiculos;
         this.context = context;
     }
+
+
 
     @Override
     public int getCount() {

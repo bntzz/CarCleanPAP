@@ -2,6 +2,7 @@ package com.carclean.util;
 
 import com.carclean.beans.Usuario;
 import com.carclean.beans.Veiculo;
+import com.carclean.dao.UsuarioService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,54 +27,36 @@ public class Teste {
         usuarios = new ArrayList<>();
         veiculos = new ArrayList<>();
 
-        Usuario u1 = new Usuario();
-        u1.setNome("Administrador do Sistema");
-        u1.setSenha("1234");
-        u1.setEmail("admin@carclean.com");
+        Usuario u1 = new Usuario("Administrador do Sistema","1234","admin@carclean.com");
         u1.setAdmin(true);
         u1.setId(1);
         u1.setVeiculos(new ArrayList<Veiculo>());
         usuarios.add(u1);
 
-        Usuario u2 = new Usuario();
-        u2.setNome("Fernando Benitez");
-        u2.setSenha("1234");
-        u2.setEmail("fernandohbenitez@hotmail.com");
+        Usuario u2 = new Usuario("Fernando Benitez","1234","fernandohbenitez@hotmail.com");
         u2.setAdmin(false);
         u2.setId(2);
         u2.setVeiculos(new ArrayList<Veiculo>());
         usuarios.add(u2);
 
-        Veiculo v1 = new Veiculo();
+        Veiculo v1 = new Veiculo("Chevrolet","Astra","Preto","GND-4670");
         v1.setDataAgendamento(Calendar.getInstance().getTime());
-        v1.setCor("Preto");
         v1.setId(1);
-        v1.setMarca("Chevrolet");
-        v1.setModelo("Astra");
-        v1.setPlaca("GND-4670");
         v1.setProprietario(u2);
         v1.setCodStatus(1);
         u2.getVeiculos().add(v1);
         veiculos.add(v1);
 
-        Veiculo v2 = new Veiculo();
+        Veiculo v2 = new Veiculo("Ford","Ka","Vermelho","CGA-1891");
         v2.setCodStatus(2);
-        v2.setCor("Vermelho");
         v2.setId(2);
-        v2.setMarca("Ford");
-        v2.setModelo("Ka");
-        v2.setPlaca("CGA-1891");
         v2.setProprietario(u2);
         u2.getVeiculos().add(v2);
         veiculos.add(v2);
 
-        Veiculo v3 = new Veiculo();
+        Veiculo v3 = new Veiculo("Volkswagen","Golf","Prata","YKK-5846");
         v3.setCodStatus(3);
-        v3.setCor("Prata");
         v3.setId(3);
-        v3.setMarca("Volkswagen");
-        v3.setModelo("Golf");
-        v3.setPlaca("YKK-5846");
         v3.setProprietario(u2);
         u2.getVeiculos().add(v3);
         veiculos.add(v3);
